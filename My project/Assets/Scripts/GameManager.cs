@@ -5,25 +5,46 @@ public class GameManager : MonoBehaviour
 {
     public Player player;
     public Enemy enemy;
-    public Character character;
-    [SerializeField]
-    private TMP_Text playerNameText, playerHealthText, enemyNameText, enemyHealthText;
+    [SerializeField] private TMP_Text playerNameText, playerHealthText, enemyNameText, enemyHealthText, shieldText;
 
     void Start()
     {
-        playerNameText.text = player.CharName;
-        enemyNameText.text = enemy.name;
-        playerHealthText.text = player.health.ToString();
-        enemyHealthText.text = enemy.health.ToString();
+        UpdateUI();
     }
 
     public void DoRound()
     {
         int playerDamage = player.Attack();
         enemy.GetHit(playerDamage);
-        int enemyDamage = enemy.Attack();
-        player.GetHit(enemyDamage);
+
+        if (enemy.health <= 0)
+        {
+            Debug.Log("Enemy Defeated! Spawning new enemy...");
+            enemy = Instantiate(enemy); // Создаём нового врага
+        }
+        else
+        {
+            int enemyDamage = enemy.Attack();
+            player.GetHit(enemyDamage);
+            if (player.health <= 0)
+            {
+                Debug.Log("Game Over");
+            }
+        }
+
+        UpdateUI();
+    }
+
+    public void ToggleShield()
+    {
+        player.ToggleShield();
+        UpdateUI();
+    }
+
+    private void UpdateUI()
+    {
         playerHealthText.text = player.health.ToString();
         enemyHealthText.text = enemy.health.ToString();
+        shieldText.text = player.IsShieldActive ? "Shield: " + player.ShieldStrength : "";
     }
 }

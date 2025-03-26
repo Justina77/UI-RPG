@@ -1558,11 +1558,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1693768148}
   enemy: {fileID: 349537510}
-  character: {fileID: 1926868388}
   playerNameText: {fileID: 1209152865}
   playerHealthText: {fileID: 80564634}
   enemyNameText: {fileID: 47918402}
   enemyHealthText: {fileID: 458155592}
+  shieldText: {fileID: 928612580}
 --- !u!1 &1437117290
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,7 +2063,7 @@ GameObject:
   - component: {fileID: 2055916164}
   - component: {fileID: 2055916163}
   m_Layer: 5
-  m_Name: Shield
+  m_Name: ShieldButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2132,7 +2132,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2055916164}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1221244866}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ToggleShield
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2055916164
 MonoBehaviour:
   m_ObjectHideFlags: 0

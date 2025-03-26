@@ -12,20 +12,20 @@ public class Character : MonoBehaviour
 
     public virtual int Attack()
     {
-        Debug.Log(name + "attacking!");
+        Debug.Log(name + " attacking!");
         return activeWeapon.GetDamage();
     }
 
-    public void GetHit(int damage)
+    public virtual void GetHit(int damage) // ? Добавили virtual
     {
         health -= damage;
-        Debug.Log(name + "current health:" + health);
+        Debug.Log(name + " current health: " + health);
     }
 
     public void GetHit(Weapon weapon)
     {
         health -= weapon.GetDamage();
-        Debug.Log("Got hit by:" + weapon.name);
-        Debug.Log(name + "current health:" + health);
+        Debug.Log("Got hit by: " + weapon.name);
+        Debug.Log(name + " current health: " + health);
     }
 }
