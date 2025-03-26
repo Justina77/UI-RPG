@@ -2,5 +2,5 @@ using UnityEngine;
 
 public class Enemy : Character
 {
-    [SerializeField] public int aggression = 5;
+    [SerializeField] internal int agression = 10;
 }
