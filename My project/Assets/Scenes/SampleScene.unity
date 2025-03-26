@@ -663,7 +663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfab83c2ed94234283fcb93c9c34559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 30
+  health: 50
   activeWeapon: {fileID: 1437117291}
   agression: 10
   agressionGain: 5

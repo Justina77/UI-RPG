@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        playerNameText.text = player.CharName;
+        enemyNameText.text = enemy.name;
         UpdateUI();
     }
 
@@ -16,22 +18,8 @@ public class GameManager : MonoBehaviour
     {
         int playerDamage = player.Attack();
         enemy.GetHit(playerDamage);
-
-        if (enemy.health <= 0)
-        {
-            Debug.Log("Enemy Defeated! Spawning new enemy...");
-            enemy = Instantiate(enemy); // Создаём нового врага
-        }
-        else
-        {
-            int enemyDamage = enemy.Attack();
-            player.GetHit(enemyDamage);
-            if (player.health <= 0)
-            {
-                Debug.Log("Game Over");
-            }
-        }
-
+        int enemyDamage = enemy.Attack();
+        player.GetHit(enemyDamage);
         UpdateUI();
     }
 
@@ -45,6 +33,18 @@ public class GameManager : MonoBehaviour
     {
         playerHealthText.text = player.health.ToString();
         enemyHealthText.text = enemy.health.ToString();
-        shieldText.text = player.IsShieldActive ? "Shield: " + player.ShieldStrength : "";
+
+        if (player.IsShieldActive) // Щит включён и работает
+        {
+            shieldText.text = "Shield: " + Mathf.Max(player.ShieldStrength, 0);
+        }
+        else if (player.IsShieldBroken) // Щит сломан, но всё равно показываем "Shield: 0"
+        {
+            shieldText.text = "Shield: 0";
+        }
+        else // Щит выключен и НЕ сломан ? скрываем надпись
+        {
+            shieldText.text = "";
+        }
     }
 }
