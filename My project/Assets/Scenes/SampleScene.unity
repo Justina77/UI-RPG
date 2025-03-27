@@ -634,6 +634,81 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &224662070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 224662071}
+  - component: {fileID: 224662073}
+  - component: {fileID: 224662072}
+  m_Layer: 5
+  m_Name: Skeleton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &224662071
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224662070}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1415, y: 152}
+  m_SizeDelta: {x: 280, y: 280}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &224662072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224662070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 1309147006828101471, guid: 9b23afdf187ec384bb03b7851b231667, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &224662073
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224662070}
+  m_CullTransparentMesh: 1
 --- !u!1 &349537509
 GameObject:
   m_ObjectHideFlags: 0
@@ -1558,11 +1633,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1693768148}
   enemy: {fileID: 349537510}
-  playerNameText: {fileID: 1209152865}
   playerHealthText: {fileID: 80564634}
-  enemyNameText: {fileID: 47918402}
   enemyHealthText: {fileID: 458155592}
+  enemyNameText: {fileID: 47918402}
   shieldText: {fileID: 928612580}
+  enemyImage: {fileID: 1034731560}
+  goblinSprite: {fileID: 6930704251294448198, guid: 2a17fef50c3fa064cadd3309eb072d96, type: 3}
+  skeletonSprite: {fileID: 1309147006828101471, guid: 9b23afdf187ec384bb03b7851b231667, type: 3}
 --- !u!1 &1437117290
 GameObject:
   m_ObjectHideFlags: 0
@@ -2003,6 +2080,7 @@ MonoBehaviour:
   health: 50
   activeWeapon: {fileID: 1437117291}
   charName: Shrek
+  shieldStrength: 20
 --- !u!1 &1926868386
 GameObject:
   m_ObjectHideFlags: 0
@@ -2050,6 +2128,53 @@ MonoBehaviour:
   health: 50
   activeWeapon: {fileID: 1437117291}
   agression: 10
+--- !u!1 &2036460786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2036460788}
+  - component: {fileID: 2036460787}
+  m_Layer: 0
+  m_Name: Skeleton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2036460787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036460786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff8cf50ae0949534bba42efce1bd7a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 30
+  activeWeapon: {fileID: 1437117291}
+  agression: 10
+--- !u!4 &2036460788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036460786}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 822.8362, y: 482.57065, z: -6.4451923}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2055916161
 GameObject:
   m_ObjectHideFlags: 0
@@ -2197,3 +2322,5 @@ SceneRoots:
   - {fileID: 85582691}
   - {fileID: 775230656}
   - {fileID: 349537511}
+  - {fileID: 2036460788}
+  - {fileID: 224662071}
