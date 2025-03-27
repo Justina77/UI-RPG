@@ -2,22 +2,18 @@ using UnityEngine;
 
 public class Player : Character
 {
-    [SerializeField] private string charName;
-    [SerializeField] private int shieldStrength = 20;
     private bool isShieldActive = false;
+    private int shieldStrength = 20;
     private bool isShieldBroken = false;
 
-    public string CharName => charName;
-    public bool IsShieldActive => isShieldActive;
+    public bool IsShieldActive => isShieldActive && !isShieldBroken;
     public bool IsShieldBroken => isShieldBroken;
     public int ShieldStrength => shieldStrength;
 
     public void ToggleShield()
     {
-        if (!isShieldBroken)
-        {
-            isShieldActive = !isShieldActive;
-        }
+        isShieldActive = !isShieldActive;
+        Debug.Log(isShieldActive ? "Shield Activated: " + shieldStrength : "Shield Deactivated");
     }
 
     public override void GetHit(int damage)
@@ -25,17 +21,18 @@ public class Player : Character
         if (isShieldActive && !isShieldBroken)
         {
             shieldStrength -= damage / 2;
+            Debug.Log(name + " blocked damage! Shield left: " + Mathf.Max(shieldStrength, 0));
 
             if (shieldStrength <= 0)
             {
-                shieldStrength = 0;
                 isShieldBroken = true;
                 isShieldActive = false;
+                Debug.Log(name + "'s shield broke!");
             }
         }
         else
         {
-            health -= damage;
+            base.GetHit(damage);
         }
     }
 }

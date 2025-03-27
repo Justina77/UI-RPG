@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Sprite goblinSprite;
     [SerializeField] private Sprite skeletonSprite;
 
-    private bool isGoblinDefeated = false; // Флаг для смены врага
+    private bool isGoblinDefeated = false;
 
     void Start()
     {
@@ -22,12 +22,27 @@ public class GameManager : MonoBehaviour
 
     public void DoRound()
     {
+        if (enemy == null)
+        {
+            Debug.LogError("Враг не задан!");
+            return;
+        }
+
         int playerDamage = player.Attack();
         enemy.GetHit(playerDamage);
 
         if (enemy.health <= 0)
         {
-            SpawnNextEnemy();
+            if (!isGoblinDefeated)
+            {
+                isGoblinDefeated = true;
+                SpawnSkeleton();
+            }
+            else
+            {
+                Debug.Log("Все враги повержены!");
+                return;
+            }
         }
         else
         {
@@ -40,8 +55,8 @@ public class GameManager : MonoBehaviour
 
     private void SpawnNextEnemy()
     {
-        enemyImage.enabled = false; // Скрываем изображение перед заменой
-        Destroy(enemy.gameObject); // Удаляем старого врага
+        enemyImage.enabled = false;
+        Destroy(enemy.gameObject);
 
         if (!isGoblinDefeated)
         {
@@ -54,7 +69,7 @@ public class GameManager : MonoBehaviour
             SpawnGoblin();
         }
 
-        enemyImage.enabled = true; // Показываем изображение нового врага
+        enemyImage.enabled = true;
         UpdateUI();
     }
 
@@ -62,29 +77,28 @@ public class GameManager : MonoBehaviour
     {
         enemy = gameObject.AddComponent<Goblin>();
         enemy.health = 50;
-        enemy.name = "Goblin";
         enemyImage.sprite = goblinSprite;
-
-        enemyImage.enabled = true; // Убедимся, что изображение включено
-        enemyNameText.text = enemy.name;
+        enemyImage.enabled = true;
+        enemyNameText.text = enemy.CharName;
     }
 
     private void SpawnSkeleton()
     {
         enemy = gameObject.AddComponent<Skeleton>();
         enemy.health = 30;
-        enemy.name = "Skeleton";
-        enemyImage.sprite = skeletonSprite;
 
-        enemyImage.enabled = true;
-        enemyNameText.text = enemy.name;
+        Debug.Log("Новый враг: " + enemy.GetType().Name);
+        Debug.Log("Здоровье нового врага: " + enemy.health);
+
+        enemyNameText.text = "Skeleton";
+        enemyImage.sprite = skeletonSprite;
     }
 
     private void UpdateUI()
     {
         playerHealthText.text = player.health.ToString();
         enemyHealthText.text = enemy.health.ToString();
-        enemyNameText.text = enemy.name;
+        enemyNameText.text = enemy.CharName;
 
         if (player.IsShieldActive)
         {

@@ -738,6 +738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfab83c2ed94234283fcb93c9c34559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charName: Goblin
   health: 50
   activeWeapon: {fileID: 1437117291}
   agression: 10
@@ -1237,6 +1238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3012c67111ad9a44697de511c2111f70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charName: 
   health: 50
   activeWeapon: {fileID: 1437117291}
   agression: 10
@@ -2077,10 +2079,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd8bde90b9e581c4db281eba004808dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charName: Shrek
   health: 50
   activeWeapon: {fileID: 1437117291}
-  charName: Shrek
-  shieldStrength: 20
 --- !u!1 &1926868386
 GameObject:
   m_ObjectHideFlags: 0
@@ -2125,6 +2126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3012c67111ad9a44697de511c2111f70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charName: 
   health: 50
   activeWeapon: {fileID: 1437117291}
   agression: 10
@@ -2157,6 +2159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8cf50ae0949534bba42efce1bd7a9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charName: Skeleton
   health: 30
   activeWeapon: {fileID: 1437117291}
   agression: 10

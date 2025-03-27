@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    [SerializeField] protected string charName; // Это оставляем
+    public string CharName => charName;
     public int health;
     [SerializeField] private Weapon activeWeapon;
 
-    public Weapon ActiveWeapon
-    {
-        get { return activeWeapon; }
-    }
+    public Weapon ActiveWeapon => activeWeapon;
 
     public virtual int Attack()
     {
@@ -16,7 +15,7 @@ public class Character : MonoBehaviour
         return activeWeapon.GetDamage();
     }
 
-    public virtual void GetHit(int damage) // ? Добавили virtual
+    public virtual void GetHit(int damage)
     {
         health -= damage;
         Debug.Log(name + " current health: " + health);
