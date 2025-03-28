@@ -78,6 +78,9 @@ public class GameManager : MonoBehaviour
         enemy = gameObject.AddComponent<Goblin>();
         enemy.health = 50;
         enemyImage.sprite = goblinSprite;
+
+        enemy.CharName = "Goblin"; // Используем CharName вместо charName
+
         enemyImage.enabled = true;
         enemyNameText.text = enemy.CharName;
     }
@@ -86,12 +89,12 @@ public class GameManager : MonoBehaviour
     {
         enemy = gameObject.AddComponent<Skeleton>();
         enemy.health = 30;
-
-        Debug.Log("Новый враг: " + enemy.GetType().Name);
-        Debug.Log("Здоровье нового врага: " + enemy.health);
-
-        enemyNameText.text = "Skeleton";
         enemyImage.sprite = skeletonSprite;
+
+        enemy.CharName = "Skeleton"; // Используем CharName вместо charName
+
+        enemyImage.enabled = true;
+        enemyNameText.text = enemy.CharName;
     }
 
     private void UpdateUI()

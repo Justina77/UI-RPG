@@ -3,11 +3,16 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     [SerializeField] protected string charName; // Ёто оставл€ем
-    public string CharName => charName;
     public int health;
     [SerializeField] private Weapon activeWeapon;
 
     public Weapon ActiveWeapon => activeWeapon;
+
+    public string CharName
+    {
+        get => charName;
+        set => charName = value; // ƒобавили set, чтобы можно было мен€ть им€
+    }
 
     public virtual int Attack()
     {
