@@ -14,7 +14,7 @@ public class Enemy : Character
     {
         if (gameManager != null && gameManager.player != null)
         {
-            int damage = Random.Range(3, 6); // 3-5 урона
+            int damage = Random.Range(3, 6); 
             gameManager.player.GetHit(damage);
             Debug.Log($"{this.name} атакует на {damage}");
         }

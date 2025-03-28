@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI; // Для работы с изображениями
+using UnityEngine.UI; 
 
 public class GameManager : MonoBehaviour
 {
@@ -8,17 +8,17 @@ public class GameManager : MonoBehaviour
     public Enemy enemy;
 
     [SerializeField] private TMP_Text playerHealthText, enemyHealthText, enemyNameText, shieldText;
-    [SerializeField] private Image enemyImage; // UI-элемент для изображения
+    [SerializeField] private Image enemyImage; 
     [SerializeField] private Sprite goblinSprite;
     [SerializeField] private Sprite skeletonSprite;
     [SerializeField] private Sprite giantSprite;
 
     private bool isGoblinDefeated = false;
 
-    [SerializeField] private GameObject gameOverPanel; // Панель "Game Over"
-    [SerializeField] private Button attackButton, shieldButton; // Кнопки
+    [SerializeField] private GameObject gameOverPanel; 
+    [SerializeField] private Button attackButton, shieldButton; 
 
-    private bool isGameOver = false; // Флаг окончания игры
+    private bool isGameOver = false; 
 
     void Start()
     {
@@ -29,14 +29,14 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-        // Показать панель Game Over
+        
         gameOverPanel.SetActive(true);
 
-        // Блокировать кнопки
+        
         attackButton.interactable = false;
         shieldButton.interactable = false;
 
-        // Записать лог для отладки
+       
         Debug.Log("Game Over! You lost.");
     }
 
@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
                 isGoblinDefeated = true;
                 SpawnSkeleton();
             }
-            else if (enemy is Skeleton) // Если убили скелета, появляется гигант
+            else if (enemy is Skeleton) 
             {
                 SpawnGiant();
             }
@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
             player.GetHit(enemyDamage);
         }
 
-        // Проверка на смерть игрока
+        
         if (player.health <= 0)
         {
             GameOver();
@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
         enemy.health = 50;
         enemyImage.sprite = goblinSprite;
 
-        enemy.CharName = "Goblin"; // Используем CharName вместо charName
+        enemy.CharName = "Goblin"; 
 
         enemyImage.enabled = true;
         enemyNameText.text = enemy.CharName;
@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
         enemy.health = 30;
         enemyImage.sprite = skeletonSprite;
 
-        enemy.CharName = "Skeleton"; // Используем CharName вместо charName
+        enemy.CharName = "Skeleton"; 
 
         enemyImage.enabled = true;
         enemyNameText.text = enemy.CharName;
@@ -129,14 +129,14 @@ public class GameManager : MonoBehaviour
 
     private void SpawnGiant()
     {
-        enemy = gameObject.AddComponent<Giant>(); // Создаём гиганта
-        enemy.health = 100; // 100 HP
-        enemyImage.sprite = giantSprite; // Меняем картинку врага
+        enemy = gameObject.AddComponent<Giant>(); 
+        enemy.health = 100; 
+        enemyImage.sprite = giantSprite; 
 
-        enemy.CharName = "Giant"; // Устанавливаем имя
+        enemy.CharName = "Giant"; 
 
         enemyImage.enabled = true;
-        enemyNameText.text = enemy.CharName; // Отображаем имя врага
+        enemyNameText.text = enemy.CharName; 
     }
 
     private void UpdateUI()

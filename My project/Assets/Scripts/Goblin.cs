@@ -9,13 +9,13 @@ public class Goblin : Enemy
         agression += agressionGain;
         Player player = FindObjectOfType<Player>();
 
-        if (player.IsShieldActive) // Если щит включен и не сломан
+        if (player.IsShieldActive) 
         {
-            return (agression / 10) / 2; // Урон по щиту вдвое меньше
+            return (agression / 10) / 2; 
         }
         else
         {
-            return agression / 10; // Обычный урон по игроку
+            return agression / 10; 
         }
     }
 }

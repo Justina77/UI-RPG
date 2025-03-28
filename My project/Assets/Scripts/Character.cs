@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    [SerializeField] protected string charName; // Ёто оставл€ем
+    [SerializeField] protected string charName; 
     public int health;
     [SerializeField] private Weapon activeWeapon;
 
@@ -11,7 +11,7 @@ public class Character : MonoBehaviour
     public string CharName
     {
         get => charName;
-        set => charName = value; // ƒобавили set, чтобы можно было мен€ть им€
+        set => charName = value; 
     }
 
     public virtual int Attack()

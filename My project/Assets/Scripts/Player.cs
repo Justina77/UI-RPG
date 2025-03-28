@@ -18,7 +18,7 @@ public class Player : Character
 
     public override void GetHit(int damage)
     {
-        if (damage == 100) // Если урон 100, значит атакует Giant
+        if (damage == 100) 
         {
             health -= damage;
             Debug.Log(name + " was killed instantly by Giant!");
