@@ -15,10 +15,29 @@ public class GameManager : MonoBehaviour
 
     private bool isGoblinDefeated = false;
 
+    [SerializeField] private GameObject gameOverPanel; // Панель "Game Over"
+    [SerializeField] private Button attackButton, shieldButton; // Кнопки
+
+    private bool isGameOver = false; // Флаг окончания игры
+
     void Start()
     {
         SpawnGoblin();
         UpdateUI();
+        gameOverPanel.SetActive(false);
+    }
+
+    private void GameOver()
+    {
+        // Показать панель Game Over
+        gameOverPanel.SetActive(true);
+
+        // Блокировать кнопки
+        attackButton.interactable = false;
+        shieldButton.interactable = false;
+
+        // Записать лог для отладки
+        Debug.Log("Game Over! You lost.");
     }
 
     public void DoRound()
@@ -53,6 +72,12 @@ public class GameManager : MonoBehaviour
         {
             int enemyDamage = enemy.Attack();
             player.GetHit(enemyDamage);
+        }
+
+        // Проверка на смерть игрока
+        if (player.health <= 0)
+        {
+            GameOver();
         }
 
         UpdateUI();
