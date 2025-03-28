@@ -18,7 +18,12 @@ public class Player : Character
 
     public override void GetHit(int damage)
     {
-        if (isShieldActive && !isShieldBroken)
+        if (damage == 100) // Если урон 100, значит атакует Giant
+        {
+            health -= damage;
+            Debug.Log(name + " was killed instantly by Giant!");
+        }
+        else if (isShieldActive && !isShieldBroken)
         {
             shieldStrength -= damage / 2;
             Debug.Log(name + " blocked damage! Shield left: " + Mathf.Max(shieldStrength, 0));

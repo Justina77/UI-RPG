@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Image enemyImage; // UI-элемент для изображения
     [SerializeField] private Sprite goblinSprite;
     [SerializeField] private Sprite skeletonSprite;
+    [SerializeField] private Sprite giantSprite;
 
     private bool isGoblinDefeated = false;
 
@@ -37,6 +38,10 @@ public class GameManager : MonoBehaviour
             {
                 isGoblinDefeated = true;
                 SpawnSkeleton();
+            }
+            else if (enemy is Skeleton) // Если убили скелета, появляется гигант
+            {
+                SpawnGiant();
             }
             else
             {
@@ -95,6 +100,18 @@ public class GameManager : MonoBehaviour
 
         enemyImage.enabled = true;
         enemyNameText.text = enemy.CharName;
+    }
+
+    private void SpawnGiant()
+    {
+        enemy = gameObject.AddComponent<Giant>(); // Создаём гиганта
+        enemy.health = 100; // 100 HP
+        enemyImage.sprite = giantSprite; // Меняем картинку врага
+
+        enemy.CharName = "Giant"; // Устанавливаем имя
+
+        enemyImage.enabled = true;
+        enemyNameText.text = enemy.CharName; // Отображаем имя врага
     }
 
     private void UpdateUI()

@@ -1642,6 +1642,7 @@ MonoBehaviour:
   enemyImage: {fileID: 1034731560}
   goblinSprite: {fileID: 6930704251294448198, guid: 2a17fef50c3fa064cadd3309eb072d96, type: 3}
   skeletonSprite: {fileID: 1309147006828101471, guid: 9b23afdf187ec384bb03b7851b231667, type: 3}
+  giantSprite: {fileID: 4727946271385046291, guid: fa5b72dd3d0d16b4e84bccbbf0282411, type: 3}
 --- !u!1 &1437117290
 GameObject:
   m_ObjectHideFlags: 0
@@ -1899,6 +1900,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507237927}
   m_CullTransparentMesh: 1
+--- !u!1 &1623717505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1623717507}
+  - component: {fileID: 1623717506}
+  m_Layer: 0
+  m_Name: Giant
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1623717506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623717505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ea8f80b82f7c5b4d93e836f1d281815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charName: Giant
+  health: 100
+  activeWeapon: {fileID: 1437117291}
+  agression: 10
+--- !u!4 &1623717507
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623717505}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 822.8362, y: 482.57065, z: -6.4451923}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1676805293
 GameObject:
   m_ObjectHideFlags: 0
@@ -2326,4 +2375,5 @@ SceneRoots:
   - {fileID: 775230656}
   - {fileID: 349537511}
   - {fileID: 2036460788}
+  - {fileID: 1623717507}
   - {fileID: 224662071}
